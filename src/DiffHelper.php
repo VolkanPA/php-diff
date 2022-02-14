@@ -47,7 +47,9 @@ final class DiffHelper
 
         $fileNames = array_map(
             // get basename without file extension
-            static fn (string $file): string => pathinfo($file, \PATHINFO_FILENAME),
+            static function (string $file): string {
+                return pathinfo($file, \PATHINFO_FILENAME);
+            },
             // paths of all Renderer files
             glob($glob, \GLOB_BRACE),
         );
